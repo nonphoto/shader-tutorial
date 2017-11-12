@@ -68,18 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	canvas.width = 800
 	canvas.height = 600
 
-  const vertexSource = request('shaders/vertex.glsl')
-  const fragmentSource = request('shaders/fragment.glsl')
+  const vertexSource = request('vertex.glsl')
+  const fragmentSource = request('fragment.glsl')
 
 	Promise.all([vertexSource, fragmentSource]).then(([vertexSource, fragmentSource]) => {
-		const gl = util.createContext(canvas)
+		const gl = createContext(canvas)
 
 		gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
 
-		const vertexShader = util.createShader(gl, vertexSource, gl.VERTEX_SHADER)
-		const fragmentShader = util.createShader(gl, fragmentSource, gl.FRAGMENT_SHADER)
+		const vertexShader = createShader(gl, vertexSource, gl.VERTEX_SHADER)
+		const fragmentShader = createShader(gl, fragmentSource, gl.FRAGMENT_SHADER)
 
-		const program = util.createProgram(gl, vertexShader, fragmentShader)
+		const program = createProgram(gl, vertexShader, fragmentShader)
 
 		gl.useProgram(program)
 		gl.clearColor(0.5, 0.5, 0.5, 1.0)
