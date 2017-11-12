@@ -7,7 +7,7 @@ const vertexPositions = [
 ]
 
 document.addEventListener('DOMContentLoaded', () => {
-	const canvas = document.getElementById("canvas")
+	const canvas = document.getElementById('canvas')
 	canvas.width = 800
 	canvas.height = 600
 
@@ -25,21 +25,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		const program = createProgram(gl, vertexShader, fragmentShader)
 
 		gl.useProgram(program)
-		gl.clearColor(0.5, 0.5, 0.5, 1.0)
+		gl.clearColor(1.0, 0.0, 1.0, 1.0)
+		gl.clear(gl.COLOR_BUFFER_BIT)
 
-		const vertexPositionAttribute = gl.getAttribLocation(program, "vertexPosition")
-		const resolutionUniform = gl.getUniformLocation(program, "resolution")
-
-		gl.uniform2f(resolutionUniform, canvas.width, canvas.height)
+		const vertexPositionAttribute = gl.getAttribLocation(program, 'a_vertexPosition')
+		const resolutionUniform = gl.getUniformLocation(program, 'u_resolution')
+		const timeUniform = gl.getUniformLocation(program, 'u_time')
 
 		gl.enableVertexAttribArray(vertexPositionAttribute)
+
+		gl.uniform2f(resolutionUniform, canvas.width, canvas.height)
 
 		const vertexBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexPositions), gl.STATIC_DRAW)
 
-		function draw() {
+		function draw(t) {
 			gl.clear(gl.COLOR_BUFFER_BIT)
+
+			gl.uniform1f(timeUniform, t)
 
 			gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0)
 
@@ -47,6 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			requestAnimationFrame(draw)
 		}
 
-		draw()
+		draw(performance.now())
 	})
 })
