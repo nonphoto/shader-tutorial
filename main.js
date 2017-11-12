@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	canvas.width = 800
 	canvas.height = 600
 
-  const vertexSource = request('vertex.glsl')
-  const fragmentSource = request('fragment.glsl')
+  const vertexSource = request('shaders/vertex.glsl')
+  const fragmentSource = request('shaders/fragment.glsl')
 
 	Promise.all([vertexSource, fragmentSource]).then(([vertexSource, fragmentSource]) => {
 		const gl = util.createContext(canvas)
