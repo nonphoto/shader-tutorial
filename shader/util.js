@@ -2,12 +2,12 @@
 * Create a new WebGL context. Throws an error if WebGL is not supported.
 */
 function createContext(canvas) {
-    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
     if (gl) {
         return gl
     }
     else {
-        throw 'WebGLNotSupported'
+        throw new Error('WebGL is not supported.')
     }
 }
 
@@ -24,8 +24,7 @@ function createProgram(gl, vertexShader, fragmentShader) {
         return program
     }
     else {
-        console.error("Unable to initialize the shader program: " + gl.getProgramInfoLog(program))
-        throw 'ProgramInitializationException'
+        throw new Error('Unable to initialize the shader program: ' + gl.getProgramInfoLog(program))
     }
 }
 
@@ -61,7 +60,7 @@ function request(path) {
                 resolve(request.response)
             }
             else {
-                reject(Error('Unable to load path'))
+                reject(new Error('Unable to load path: ' + path))
             }
         }
 
