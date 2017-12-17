@@ -1,7 +1,7 @@
 precision mediump float;
 
-uniform vec2 resolution;
-uniform vec3 lightPosition;
+uniform vec2 u_resolution;
+uniform vec3 u_lightPosition;
 
 struct Sphere {
 	vec3 p;
@@ -21,7 +21,7 @@ struct Ray {
 
 const Sphere A = Sphere(vec3(0.0, 0.0, 10.0), 2.0);
 
-Light L = Light(lightPosition, 0.99, 0.2);
+Light L = Light(u_lightPosition, 0.99, 0.2);
 
 vec3 traceRay(in Ray R) {
 	float a = dot(R.d, R.d);
@@ -43,9 +43,9 @@ vec3 traceRay(in Ray R) {
 }
 
 void main() {
-	float scaling = min(resolution.x, resolution.y);
+	float scaling = min(u_resolution.x, u_resolution.y);
 	vec3 origin = vec3(0.0, 0.0, 0.0);
-	vec3 direction = normalize(vec3((gl_FragCoord.xy - (resolution / 2.0)) / scaling, 1.0));
+	vec3 direction = normalize(vec3((gl_FragCoord.xy - (u_resolution / 2.0)) / scaling, 1.0));
 	Ray R = Ray(origin, direction);
 	vec3 light = traceRay(R);
 	gl_FragColor = vec4(light, 1.0);
