@@ -1,10 +1,10 @@
 // Vertex coordinates corresponding to the edges of the canvas in shader-space.
-const vertexPositions = [
-	-1, -1, 0,
-	-1, 1, 0,
-	1, -1, 0,
-	1, 1, 0
-]
+const vertexPositions = [].concat(
+	[-1, -1, 0],
+	[-1, 1, 0],
+	[1, -1, 0],
+	[1, 1, 0]
+)
 
 // Wait for the document to load.
 document.addEventListener('DOMContentLoaded', () => {
