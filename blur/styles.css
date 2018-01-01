@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+#canvas {
+    width: 512px;
+    height: 512px;
+}
+
+#source-image {
+    display: none;
+}
