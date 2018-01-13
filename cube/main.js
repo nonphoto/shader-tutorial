@@ -22,18 +22,18 @@ const colors = [].concat(
 )
 
 const elements = [].concat(
-	[0, 1, 3, 0, 2, 3],
-	[5, 4, 6, 5, 7, 6],
-	[4, 0, 2, 4, 6, 2],
-	[1, 5, 7, 1, 3, 7],
-	[2, 6, 7, 2, 3, 7],
-	[0, 4, 5, 0, 1, 5]
+	[0, 1, 3], [0, 2, 3],
+	[5, 4, 6], [5, 7, 6],
+	[4, 0, 2], [4, 6, 2],
+	[1, 5, 7], [1, 3, 7],
+	[2, 6, 7], [2, 3, 7],
+	[0, 4, 5], [0, 1, 5]
 )
 
 document.addEventListener('DOMContentLoaded', () => {
 	const canvas = document.getElementById('canvas')
-	canvas.width = window.innerWidth
-	canvas.height = window.innerHeight
+	canvas.width = 1024
+	canvas.height = 1024
 
 	const vertexSource = request('vertex.glsl')
 	const fragmentSource = request('fragment.glsl')
