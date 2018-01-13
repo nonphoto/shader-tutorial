@@ -7,7 +7,10 @@ uniform mat4 u_projection;
 
 varying vec4 v_color;
 
+vec3 color;
+
 void main() {
-	v_color = a_vertexColor;
-	gl_Position = u_projection * u_view * u_model * vec4(a_vertexPosition, 1);
+	color = (a_vertexPosition * 0.5) + 0.5;
+	v_color = vec4(color, 1.0);
+	gl_Position = u_projection * u_view * u_model * vec4(a_vertexPosition, 1.0);
 }

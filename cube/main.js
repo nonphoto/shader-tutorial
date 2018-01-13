@@ -10,17 +10,6 @@ const positions = [].concat(
 	[1.0, 1.0, 1.0]
 )
 
-const colors = [].concat(
-	[0.0, 0.0, 0.0, 1.0],
-	[0.0, 0.0, 1.0, 1.0],
-	[0.0, 1.0, 0.0, 1.0],
-	[0.0, 1.0, 1.0, 1.0],
-	[1.0, 0.0, 0.0, 1.0],
-	[1.0, 0.0, 1.0, 1.0],
-	[1.0, 1.0, 0.0, 1.0],
-	[1.0, 1.0, 1.0, 1.0]
-)
-
 const elements = [].concat(
 	[0, 1, 3], [0, 2, 3],
 	[5, 4, 6], [5, 7, 6],
@@ -67,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		mat4.perspective(projectionMatrix, fieldOfView, aspectRatio, 1, 50)
 
 		const vertexPositionAttribute = gl.getAttribLocation(program, 'a_vertexPosition')
-		const vertexColorAttribute = gl.getAttribLocation(program, 'a_vertexColor')
 		const modelUniform = gl.getUniformLocation(program, 'u_model')
 		const viewUniform = gl.getUniformLocation(program, 'u_view')
 		const projectionUniform = gl.getUniformLocation(program, 'u_projection')
@@ -75,10 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		const vertexBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
-
-		const colorBuffer = gl.createBuffer()
-		gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer)
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW)
 
 		const elementBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
@@ -97,10 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			gl.enableVertexAttribArray(vertexPositionAttribute)
 			gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
 			gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0)
-
-			gl.enableVertexAttribArray(vertexColorAttribute)
-			gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer)
-			gl.vertexAttribPointer(vertexColorAttribute, 4, gl.FLOAT, false, 0, 0)
 
 			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
 
