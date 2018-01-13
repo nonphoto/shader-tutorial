@@ -1,17 +1,5 @@
-function normalFromVertices(a, b, c) {
-	const d = vec3.create()
-	vec3.subtract(d, c, b)
 
-	const e = vec3.create()
-	vec3.subtract(e, a, b)
-
-	const result = vec3.create()
-	vec3.cross(result, d, e)
-	vec3.normalize(result, result)
-	return result
-}
-
-const positions = [
+const positions = [].concat(
 	[-1.0, -1.0, -1.0],
 	[-1.0, -1.0, 1.0],
 	[-1.0, 1.0, -1.0],
@@ -20,9 +8,9 @@ const positions = [
 	[1.0, -1.0, 1.0],
 	[1.0, 1.0, -1.0],
 	[1.0, 1.0, 1.0]
-]
+)
 
-const colors = [
+const colors = [].concat(
 	[0.0, 0.0, 0.0, 1.0],
 	[0.0, 0.0, 1.0, 1.0],
 	[0.0, 1.0, 0.0, 1.0],
@@ -31,32 +19,16 @@ const colors = [
 	[1.0, 0.0, 1.0, 1.0],
 	[1.0, 1.0, 0.0, 1.0],
 	[1.0, 1.0, 1.0, 1.0]
-]
+)
 
-const elements = [
-	[0, 1, 3],
-	[0, 2, 3],
-	[5, 4, 6],
-	[5, 7, 6],
-	[4, 0, 2],
-	[4, 6, 2],
-	[1, 5, 7],
-	[1, 3, 7],
-	[2, 6, 7],
-	[2, 3, 7],
-	[0, 4, 5],
-	[0, 1, 5]
-]
-
-const normals = elements.map((element) => {
-	const vertices = element.map((index) => {
-		return positions[index]
-	})
-
-	return normalFromVertices(...vertices)
-})
-
-console.log(normals)
+const elements = [].concat(
+	[0, 1, 3, 0, 2, 3],
+	[5, 4, 6, 5, 7, 6],
+	[4, 0, 2, 4, 6, 2],
+	[1, 5, 7, 1, 3, 7],
+	[2, 6, 7, 2, 3, 7],
+	[0, 4, 5, 0, 1, 5]
+)
 
 document.addEventListener('DOMContentLoaded', () => {
 	const canvas = document.getElementById('canvas')
@@ -102,15 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const vertexBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([].concat(positions)), gl.STATIC_DRAW)
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
 
 		const colorBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer)
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([].concat(colors)), gl.STATIC_DRAW)
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW)
 
 		const elementBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
-		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([].concat(elements)), gl.STATIC_DRAW)
+		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(elements), gl.STATIC_DRAW)
 
 		function draw(t1) {
 			const dt = t1 - t0
