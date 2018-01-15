@@ -68,15 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
 		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(elements), gl.STATIC_DRAW)
 
-		function draw(t1) {
-			const dt = t1 - t0
-			t0 = t1
+		function draw() {
+			// Replace with time uniform.
+			mat4.rotateY(modelMatrix, modelMatrix, 0.006)
+			mat4.rotateX(modelMatrix, modelMatrix, 0.01)
 
-			mat4.rotateY(modelMatrix, modelMatrix, dt * 0.0003)
-			mat4.rotateX(modelMatrix, modelMatrix, dt * 0.0005)
-			gl.uniformMatrix4fv(modelUniform, false, new Float32Array(modelMatrix))
-			gl.uniformMatrix4fv(viewUniform, false, new Float32Array(viewMatrix))
-			gl.uniformMatrix4fv(projectionUniform, false, new Float32Array(projectionMatrix))
+			gl.uniformMatrix4fv(modelUniform, false, modelMatrix)
+			gl.uniformMatrix4fv(viewUniform, false, viewMatrix)
+			gl.uniformMatrix4fv(projectionUniform, false, projectionMatrix)
 
 			gl.enableVertexAttribArray(vertexPositionAttribute)
 			gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
@@ -88,8 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			requestAnimationFrame(draw)
 		}
 
-		let t0 = performance.now()
-		draw(t0)
+		draw()
 	})
 })
 
