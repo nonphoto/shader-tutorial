@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		mat4.invert(viewMatrix, viewMatrix)
 
 		const fieldOfView = Math.PI / 2
-		const aspectRatio = window.innerWidth / window.innerHeight
+		const aspectRatio = canvas.width / canvas.height
 		const projectionMatrix = mat4.create()
 		mat4.perspective(projectionMatrix, fieldOfView, aspectRatio, 1, 50)
 
