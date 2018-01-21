@@ -43,22 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		gl.enable(gl.DEPTH_TEST)
 
-		const modelMatrix = mat4.create()
-		mat4.scale(modelMatrix, modelMatrix, vec3.fromValues(5, 5, 5))
-
-		const viewMatrix = mat4.create()
-		mat4.translate(viewMatrix, viewMatrix, vec3.fromValues(0, 0, 20))
-		mat4.invert(viewMatrix, viewMatrix)
-
 		const fieldOfView = Math.PI / 2
 		const aspectRatio = canvas.width / canvas.height
 		const projectionMatrix = mat4.create()
 		mat4.perspective(projectionMatrix, fieldOfView, aspectRatio, 1, 50)
 
 		const vertexPositionAttribute = gl.getAttribLocation(program, 'a_vertexPosition')
-		const modelUniform = gl.getUniformLocation(program, 'u_model')
-		const viewUniform = gl.getUniformLocation(program, 'u_view')
 		const projectionUniform = gl.getUniformLocation(program, 'u_projection')
+		const timeUniform = gl.getUniformLocation(program, 'u_time')
 
 		const vertexBuffer = gl.createBuffer()
 		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
@@ -68,14 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
 		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(elements), gl.STATIC_DRAW)
 
-		function draw() {
-			// Replace with time uniform.
-			mat4.rotateY(modelMatrix, modelMatrix, 0.006)
-			mat4.rotateX(modelMatrix, modelMatrix, 0.01)
-
-			gl.uniformMatrix4fv(modelUniform, false, modelMatrix)
-			gl.uniformMatrix4fv(viewUniform, false, viewMatrix)
+		function draw(t) {
 			gl.uniformMatrix4fv(projectionUniform, false, projectionMatrix)
+			gl.uniform1f(timeUniform, t)
 
 			gl.enableVertexAttribArray(vertexPositionAttribute)
 			gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
@@ -87,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			requestAnimationFrame(draw)
 		}
 
-		draw()
+		draw(performance.now())
 	})
 })
 
