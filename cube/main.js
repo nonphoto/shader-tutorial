@@ -43,13 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		gl.enable(gl.DEPTH_TEST)
 
-		const fieldOfView = Math.PI / 2
-		const aspectRatio = canvas.width / canvas.height
-		const projectionMatrix = mat4.create()
-		mat4.perspective(projectionMatrix, fieldOfView, aspectRatio, 1, 50)
-
 		const vertexPositionAttribute = gl.getAttribLocation(program, 'a_vertexPosition')
-		const projectionUniform = gl.getUniformLocation(program, 'u_projection')
 		const timeUniform = gl.getUniformLocation(program, 'u_time')
 
 		const vertexBuffer = gl.createBuffer()
@@ -61,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(elements), gl.STATIC_DRAW)
 
 		function draw(t) {
-			gl.uniformMatrix4fv(projectionUniform, false, projectionMatrix)
 			gl.uniform1f(timeUniform, t)
 
 			gl.enableVertexAttribArray(vertexPositionAttribute)
