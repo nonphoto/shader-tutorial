@@ -1,3 +1,4 @@
+// These are the vertex positions for a cube.
 const positions = [
 	-1.0, -1.0, -1.0,
 	-1.0, -1.0, 1.0,
@@ -9,6 +10,7 @@ const positions = [
 	1.0, 1.0, 1.0
 ]
 
+// These are the indices to use when drawing the cube as a group of triangles.
 const elements = [
 	0, 1, 3,
 	0, 2, 3,
@@ -45,31 +47,14 @@ Promise
 	gl.useProgram(program)
 	gl.clearColor(1.0, 0.0, 1.0, 1.0)
 	gl.clear(gl.COLOR_BUFFER_BIT)
-	gl.enable(gl.DEPTH_TEST)
 
-	const vertexPositionAttribute = gl.getAttribLocation(program, 'a_vertexPosition')
-	const timeUniform = gl.getUniformLocation(program, 'u_time')
-
+	// Create a new buffer and fill it with our vertices.
 	const vertexBuffer = gl.createBuffer()
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
 
+	// Create a new buffer and fill it with our element indices.
 	const elementBuffer = gl.createBuffer()
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
 	gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(elements), gl.STATIC_DRAW)
-
-	function draw(t) {
-		gl.uniform1f(timeUniform, t)
-
-		gl.enableVertexAttribArray(vertexPositionAttribute)
-		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
-		gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0)
-
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
-		gl.drawElements(gl.TRIANGLES, elements.length, gl.UNSIGNED_SHORT, 0)
-
-		requestAnimationFrame(draw)
-	}
-
-	draw(performance.now())
 })

@@ -26,10 +26,12 @@ Promise
 	// Tell the GPU to use the program we just made.
 	gl.useProgram(program)
 
+	// Enable depth testing, important later.
+	gl.enable(gl.DEPTH_TEST)
+
 	// Set the clear color to a fetching pink for debugging purposes.
 	gl.clearColor(1.0, 0.0, 1.0, 1.0)
 
 	// Clear the canvas. This sets every pixel to the clear color.
 	gl.clear(gl.COLOR_BUFFER_BIT)
 })
-
