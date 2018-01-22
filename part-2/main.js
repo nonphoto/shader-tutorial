@@ -38,7 +38,6 @@ Promise
 .then(([vertexSource, fragmentSource]) => {
 
 	const gl = createContext(canvas)
-	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
 
 	const vertexShader = createShader(gl, vertexSource, gl.VERTEX_SHADER)
 	const fragmentShader = createShader(gl, fragmentSource, gl.FRAGMENT_SHADER)

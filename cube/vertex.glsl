@@ -1,6 +1,5 @@
 attribute vec3 a_vertexPosition;
 
-uniform mat4 u_projection;
 uniform float u_time;
 
 varying vec4 v_color;

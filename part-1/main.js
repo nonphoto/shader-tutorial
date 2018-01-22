@@ -12,10 +12,6 @@ Promise
 	// Create a new WebGL context for the canvas element.
 	const gl = createContext(canvas)
 
-	// Set the dimensions of the viewport equal to the resolution. For example pixels
-	// will be numbered horizontally from 0 to 800 instead of -1 to 1.
-	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
-
 	// Create new shader objects from the vertex and fragment shader sources.
 	const vertexShader = createShader(gl, vertexSource, gl.VERTEX_SHADER)
 	const fragmentShader = createShader(gl, fragmentSource, gl.FRAGMENT_SHADER)

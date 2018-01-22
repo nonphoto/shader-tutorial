@@ -53,19 +53,13 @@ Promise
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
 	gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(elements), gl.STATIC_DRAW)
 
-	// Get the memory location allocated to our vertex position attribute.
 	const vertexPositionAttribute = gl.getAttribLocation(program, 'a_vertexPosition')
 
-	// Enable the vertex attribute array. This tells the shader program to iterate over our vertex attributes in the vertex shader.
 	gl.enableVertexAttribArray(vertexPositionAttribute)
 
-	// Bind the vertex buffer and specify the memory layout. In this case our vertices each have 3 float components.
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
 	gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0)
 
-	// Bind the element array buffer before drawing.
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementBuffer)
-
-	// Draw each of our triangles to the frame.
 	gl.drawElements(gl.TRIANGLES, elements.length, gl.UNSIGNED_SHORT, 0)
 })
