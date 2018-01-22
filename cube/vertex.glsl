@@ -38,9 +38,9 @@ void main() {
 	v_color = vec4((a_vertexPosition * 0.5) + 0.5, 1.0);
 
 	model_position = vec4(a_vertexPosition, 1.0);
-	translation = vec4(0, 0, -3, 1);
+	translation = vec4(0, 0, -4.0, 1.0);
 	rotation = rotateY(u_time * 0.001);
-	projection = perspective(1.4, 1.0, 1.0, 50.0);
+	projection = perspective(0.8, 1.0, 1.0, 50.0);
 
 	gl_Position = ((model_position * rotation) + translation) * projection;
 }
