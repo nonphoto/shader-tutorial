@@ -1,3 +1,4 @@
+// Declare a new attribute for the vertex position.
 attribute vec3 a_vertexPosition;
 
 void main() {
