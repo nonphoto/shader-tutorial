@@ -36,6 +36,6 @@ void main() {
 	// Create a new projection matrix.
 	projection = perspective(0.8, 1.0, 1.0, 50.0);
 
-
+	// Translate and project the position of the vertex.
     gl_Position = (model_position + translation) * projection;
 }
