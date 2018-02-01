@@ -7,75 +7,54 @@
     <body>
         <section>
             <h1>Shaders</h1>
-            <p>By <a href="jonasluebbers.com">Jonas Luebbers</a></p>
         </section>
-        <section>
-            <h2>Shaders are for drawing things.</h2>
-            <p>They are for drawing things a very specific kind of way.</p>
-            <p>This way happens to be difficult, but fast.</p>
-            <p>They can be intimidating at first, but using them on the web is easier then you might expect.</p>
+        <section id="part-0">
+            <h2>0</h2>
+            <p>
+                Setting up our site
+            </p>
         </section>
-        <section>
-            <h2>Why bother?</h2>
-            <p>Most of the time, don't bother.</p>
-            <p>We already have things like <a href="https://p5js.org">p5.js</a> and <a href="https://threejs.org/">three.js</a> which are often</p>
-            <ol>
-                <li>Better</li>
-                <li>Easier</li>
-            </ol>
-            <aside>You might be tempted to use the speed of shaders everywhere, but using a framework usually makes it easier to get a fast running program.</aside>
+        <section id="part-1">
+            <h2>1</h2>
+            <p>
+                Initializing the context
+            </p>
         </section>
-        <section>
-            <h2>Shaders are for when you need to DIY.</h2>
-            <p>You are responsible for a lot more of the rendering pipeline.</p>
-            <p>This means more work, but it can have impressive results:</p>
-            <ol>
-                <li>Full control over every pixel.</li>
-                <li>Dynamic and non-geometric textures.</li>
-                <li>Hardware-accelerated rasterization.</li>
-                <li>Ludicrous speed (sometimes).</li>
-            </ol>
-            <aside>Rasterization is the process of turning 3d geometry into a 2d image.</aside>
+        <section id="part-2">
+            <h2>2</h2>
+            <p>
+                Creating the vertex and element buffers
+            </p>
         </section>
-        <!-- <iframe src="http://www.jonasluebbers.com/webgl-demos/ray-march/"></iframe> -->
-        <!-- <iframe src="http://www.jonasluebbers.com/webgl-demos/cube/"></iframe> -->
-        <!-- <iframe src="http://www.jonasluebbers.com/marbled-paper/"></iframe> -->
-        <!-- <a href="https://www.khronos.org/files/opengl-quick-reference-card.pdf">Open GL Quick Reference</a> -->
-        <section>
-            <video src="sky.mp4" controls></video>
+        <section id="part-3">
+            <h2>3</h2>
+            <p>
+                Drawing triangles to the screen
+            </p>
         </section>
-        <section>
-            <h2>How do CPUs work?</h2>
-            <p>CPUs are the main processing unit in most computers.</p>
-            <aside>Many also have a GPU, which we will get to in a second.</aside>
-            <p>They do one big task at a time, in sequence.</p>
-            <p>Some CPUs have multiple threads that each do their own task.</p>
-            <p>Part of the computation is also dedicated to deciding what to do next.</p>
+        <section id="part-4">
+            <h2>3</h2>
+            <p>
+                Perspective projection
+            </p>
         </section>
-        <section>
-            <h2>Why are GPUs fast?</h2>
-            <p>Rendering an image requires a very large number of small tasks.</p>
-            <p>Instead of doing one at a time, thousands of threads process a chunk of tasks at once.</p>
-            <p>These smaller threads can't communicate between each other.</p>
-            <p>They can't decide which tasks to do.</p>
+        <section id="part-5">
+            <h2>5</h2>
+            <p>
+                Model rotation
+            </p>
         </section>
-        <section>
-            <p>WebGL is a technology that allows you to run GPU programs on the web.</p>
-            <p>GLSL is the language that GPU programs are typically written in.</p>
-            <p>On the web we use Javascript running on the CPU to tell WebGL to run some programs that we wrote in GLSL on the GPU.</p>
+        <section id="part-6">
+            <h2>6</h2>
+            <p>
+                Animation
+            </p>
         </section>
-        <section>
-            <aside>Saved for diagram.</aside>
-        </section>
-        <section>
-            <h2>You need to set up the pipeline yourself.</h2>
-            <p>The JS end of the program is usually confusing boilerplate.</p>
-            <p>To get the best performance the JS and GLSL sides need to be tuned to each other.</p>
-            <p>Its really boring so I did it for you.</p>
-            <aside>A lot of it has to do with memory optimization, so it's also out of the scope of this tutorial.</aside>
-        </section>
-        <section>
-            <h2></h2>
+        <section id="part-7">
+            <h2>7</h2>
+            <p>
+                Color
+            </p>
         </section>
     </body>
 </html>

@@ -9,17 +9,14 @@ html, body {
 }
 
 html {
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, helvetica neue, helvetica, roboto, noto, segoe ui, arial, sans-serif;
     font-size: 32px;
 }
 
-body {
-
-}
 
 iframe {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 section {
@@ -27,9 +24,14 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    padding: 10vh 10vw;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20vh 10vw;
+    border-top: solid 2px rgba(0, 0, 0, 0.1);
+}
+
+section:first-of-type {
+    border-top: none;
 }
 
 aside {
