@@ -1,7 +1,9 @@
 attribute vec3 a_vertexPosition;
 
-// Declare a new uniform for the global time.
 uniform float u_time;
+
+// Declare a new varying for the vertex color.
+varying vec4 v_color;
 
 vec4 model_position;
 vec4 translation;
@@ -36,9 +38,10 @@ void main() {
 	model_position = vec4(a_vertexPosition, 1.0);
 	translation = vec4(0.0, 0.0, -4.0, 1.0);
 	projection = perspective(0.8, 1.0, 1.0, 50.0);
-
-	// Calculate our rotation based on the current time.
 	rotation = rotateY(u_time * 0.001);
 
     gl_Position = ((model_position * rotation) + translation) * projection;
+
+	// Set the vertex color to the vertex position mapped to the range [0, 1].
+	v_color = vec4((a_vertexPosition * 0.5) + 0.5, 1.0);
 }
