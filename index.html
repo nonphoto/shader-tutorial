@@ -10,7 +10,7 @@
         </section>
         <section id="intro">
             <p>
-                WebGl is our interface with the GPU. It is challenging to use because its API is confusing. In this tutorial I want to demystify the process of getting a shader program running so you don't have to load a big framework like Three, or Pixi.
+                WebGl is our interface with the GPU. It is challenging to use because its API is confusing. In this tutorial I want to demystify the process of getting a shader program running so you don't have to load a big framework like <a href="https://threejs.org/">Three</a> or <a href="http://www.pixijs.com/">Pixi</a>.
             </p>
             <p>
                 Essentially, WebGL uses the graphics card to draw to the canvas.
@@ -65,16 +65,13 @@
                 Creating the vertex and element buffers
             </h4>
             <p>
-                The vertex shader will iterate over vertices, but we haven't yet given it any vertices work with.
+                We want the vertex shader to iterate over our vertex positions, but we haven't yet given it any data to work with.
             </p>
             <p>
-                We tell the program what vertices to use by creating a vertex buffer to store them.
+                We use a <em>vertex buffer</em> to store our vertex positions, and an <em>element buffer</em> to store the order in which to traverse the vertices.
             </p>
             <p>
-                We tell the program the order of the vertices by storing their indices in an element buffer. That way we never need duplicate vertices in our vertex buffer.
-            </p>
-            <p>
-                Even though vertex positions are 3-dimensional vectors, both the vertex and element buffers are flat arrays. We will tell WebGL how to interpret the array later.
+                Even though vertex positions are 3-dimensional vectors, both the vertex and element buffers are flat arrays. We will tell WebGL how to interpret the buffers later.
             </p>
             <ul>
                 <li>
@@ -91,7 +88,33 @@
                 Drawing triangles to the screen
             </h4>
             <p>
-
+                We have created buffers for our vertex data, now its time to convert the data into pixels in the canvas.
+            </p>
+            <p>
+                The vertex shader receives the vertex positions from the vertex buffer in an <em>attribute</em>. An attribute is a variable that we declare in the vertex shader.
+            </p>
+            <p>
+                We draw the triangles by writing each vertex position to an attribute we declared in the vertex shader. The vertex shader will then manipulate the vertices and return new ones.
+            </p>
+            <p>
+                When the vertex shader is finished processing all of the vertex data, the shader program rasterizes the resulting triangles. It uses the fragment shader to decide what color each pixel should be.
+            </p>
+            <ul>
+                <li>
+                    Get the memory location of the vertex position attribute and write the vertex buffer to it.
+                </li>
+                <li>
+                    Run the vertex and fragment shaders by calling <span class="code">gl.drawElements</span>
+                </li>
+                <li>
+                    Return each of the vertices without manipulating them.
+                </li>
+                <li>
+                    Render bright blue for every fragment.
+                </li>
+            </ul>
+            <p>
+                The canvas is now bright blue.
             </p>
         </section>
         <section id="part-4">
@@ -99,24 +122,82 @@
             <h4>
                 Perspective projection
             </h4>
+            <p>
+                The entire canvas is now blue because the edges of the cube line up with the corners of the canvas.
+            </p>
+            <p>
+                WebGL does not give you a 3d perspective by default; it just ignores the z axis. We need to do some math to project our 3d coordinates into the 2d space of the canvas.
+            </p>
+            <p>
+                The easiest way to do this is using <em>matrix multiplication</em>. Simply put, matrices perform different transformations on vectors when you multiply them together.
+            </p>
+            <ul>
+                <li>
+                    Add a function <span class="code">perspective</span> that produces a new perspective matrix.
+                </li>
+                <li>
+                    Translate the vertex position away from the origin of the scene using vector addition.
+                </li>
+                <li>
+                    Project the 3d vertex into 2d space by multiplying it by the perspective matrix.
+                </li>
+            </ul>
+            <p>
+                Now you should see a blue square in the center of a pink canvas.
+            </p>
         </section>
         <section id="part-5">
             <h2>5</h2>
             <h4>
                 Model rotation
             </h4>
+            <p>
+                We rotate the model in the same way we performed the perspective projection, with matrix multiplication.
+            </p>
+            <ul>
+                <li>
+                    Add a function <span class="code">rotateY</span> that returns a new rotation matrix.
+                </li>
+                <li>
+                    Rotate the model by multiplying each vertex by the rotation matrix.
+                </li>
+            </ul>
         </section>
         <section id="part-6">
             <h2>6</h2>
             <h4>
                 Animation
             </h4>
+            <p>
+                We can animate our scene by re-drawing the frame 60 times per second, and passing in a different global time variable for each frame.
+            </p>
+            <p>
+                WebGL supports passing global variables to shaders with <em>uniforms</em>. Uniforms are just constants that we set before running the vertex and fragment shaders.
+            </p>
+            <ul>
+                <li>
+                    Get the memory location of the time uniform in the vertex shader.
+                </li>
+                <li>
+                    Start an animation loop using <code class="span">requestAnimationFrame</code>.
+                </li>
+                <li>
+                    Write the current time to the uniform each frame.
+                </li>
+                <li>
+                    Rotate the model by a product of the current time.
+                </li>
+            </ul>
+            <p>
+                The cube spins around the y axis now. Notice that the background is transparent because we aren't clearing the canvas each frame.
+            </p>
         </section>
         <section id="part-7">
             <h2>7</h2>
             <h4>
                 Color
             </h4>
+            <p></p>
         </section>
     </body>
 </html>
