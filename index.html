@@ -8,53 +8,115 @@
         <section>
             <h1>Shaders</h1>
         </section>
+        <section id="intro">
+            <p>
+                WebGl is our interface with the GPU. It is challenging to use because its API is confusing. In this tutorial I want to demystify the process of getting a shader program running so you don't have to load a big framework like Three, or Pixi.
+            </p>
+            <p>
+                Essentially, WebGL uses the graphics card to draw to the canvas.
+            </p>
+            <p>
+                All geometry is composed of triangles. Triangles are great because any three points defines exactly one plane.
+            </p>
+        </section>
         <section id="part-0">
             <h2>0</h2>
-            <p>
+            <h4>
                 Setting up our site
-            </p>
+            </h4>
+            <ul>
+                <li>
+                    Create a very basic site with a canvas centered in the viewport.
+                </li>
+                <li>
+                    Run a Javascript file called <a href="part-0/main.js">main.js</a> at the end of the page.
+                </li>
+                <li>
+                    Request the vertex and fragment shaders using <span class="code">request</span> from <a href="util.js">util.js</a>
+                </li>
+            </ul>
         </section>
         <section id="part-1">
             <h2>1</h2>
-            <p>
+            <h4>
                 Initializing the context
+            </h4>
+            <ul>
+                <li>
+                    Create a new WebGl context for the canvas element.
+                </li>
+                <li>
+                    Create new shader objects from the vertex and fragment shader sources.
+                </li>
+                <li>
+                    Create a new WebGl program that uses the two shaders.
+                </li>
+                <li>
+                    Clear the canvas using our context.
+                </li>
+            </ul>
+            <p>
+                The canvas should now be bright pink.
             </p>
         </section>
         <section id="part-2">
             <h2>2</h2>
-            <p>
+            <h4>
                 Creating the vertex and element buffers
+            </h4>
+            <p>
+                The vertex shader will iterate over vertices, but we haven't yet given it any vertices work with.
             </p>
+            <p>
+                We tell the program what vertices to use by creating a vertex buffer to store them.
+            </p>
+            <p>
+                We tell the program the order of the vertices by storing their indices in an element buffer. That way we never need duplicate vertices in our vertex buffer.
+            </p>
+            <p>
+                Even though vertex positions are 3-dimensional vectors, both the vertex and element buffers are flat arrays. We will tell WebGL how to interpret the array later.
+            </p>
+            <ul>
+                <li>
+                    Create arrays for the vertices and indices called <span class="code">positions</span> and <span class="code">elements</span>
+                </li>
+                <li>
+                    Create a <span class="code">vertexBuffer</span> and <span class="code">elementBuffer</span>, and populate them with the vertex positions and indices.
+                </li>
+            </ul>
         </section>
         <section id="part-3">
             <h2>3</h2>
-            <p>
+            <h4>
                 Drawing triangles to the screen
+            </h4>
+            <p>
+
             </p>
         </section>
         <section id="part-4">
-            <h2>3</h2>
-            <p>
+            <h2>4</h2>
+            <h4>
                 Perspective projection
-            </p>
+            </h4>
         </section>
         <section id="part-5">
             <h2>5</h2>
-            <p>
+            <h4>
                 Model rotation
-            </p>
+            </h4>
         </section>
         <section id="part-6">
             <h2>6</h2>
-            <p>
+            <h4>
                 Animation
-            </p>
+            </h4>
         </section>
         <section id="part-7">
             <h2>7</h2>
-            <p>
+            <h4>
                 Color
-            </p>
+            </h4>
         </section>
     </body>
 </html>

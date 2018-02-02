@@ -10,7 +10,7 @@ html, body {
 
 html {
     font-family: -apple-system, BlinkMacSystemFont, helvetica neue, helvetica, roboto, noto, segoe ui, arial, sans-serif;
-    font-size: 32px;
+    font-size: 28px;
 }
 
 
@@ -42,7 +42,7 @@ aside {
 a {
     color: inherit;
     text-decoration: none;
-    border-bottom: solid rgba(0, 0, 0, 0.3) 0.08em;
+    border-bottom: solid rgba(0, 0, 0, 0.2) 0.08em;
     transition: border 100ms;
     padding-bottom: 0.08em;
 }
@@ -57,8 +57,20 @@ h1 {
 
 h1, h2, h3, p, li {
     margin: 0.5em 0;
+    max-width: 30em;
 }
 
-ol {
-    margin-left: 2rem;
+ul, ol {
+    margin-left: 1.3rem;
+}
+
+div.code,
+span.code {
+    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Inconsolata', 'Deja Vu', monospace;
+    font-size: 0.9em;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.16em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    border-radius: 0.2em;
 }
