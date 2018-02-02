@@ -94,7 +94,7 @@
                 The vertex shader receives the vertex positions from the vertex buffer in an <em>attribute</em>. An attribute is a variable that we declare in the vertex shader.
             </p>
             <p>
-                We draw the triangles by writing each vertex position to an attribute we declared in the vertex shader. The vertex shader will then manipulate the vertices and return new ones.
+                First we write each element of the vertex buffer to an attribute we declared in the vertex shader. Later, we will manipulate the vertex in some way before returning it.
             </p>
             <p>
                 When the vertex shader is finished processing all of the vertex data, the shader program rasterizes the resulting triangles. It uses the fragment shader to decide what color each pixel should be.
@@ -107,10 +107,10 @@
                     Run the vertex and fragment shaders by calling <span class="code">gl.drawElements</span>
                 </li>
                 <li>
-                    Return each of the vertices without manipulating them.
+                    Set <span class="code">gl_Position</span> to return each of the vertices without manipulating them.
                 </li>
                 <li>
-                    Render bright blue for every fragment.
+                    Set <span class="code">gl_FragColor</span> to render bright blue for every fragment.
                 </li>
             </ul>
             <p>
@@ -197,7 +197,26 @@
             <h4>
                 Color
             </h4>
-            <p></p>
+            <p>
+                We can add color to our cube by returning a different color for each pixel in the fragment shader.
+            </p>
+            <p>
+                We can use a <em>varying</em> to pass information from the vertex shader to the fragment shader. In this case, we give each vertex a color.
+            </p>
+            <p>
+                The varying will automatically interpolate between vertex values for the given fragment.
+            </p>
+            <ul>
+                <li>
+                    Create a new varying called <span class="code">v_color</span>.
+                </li>
+                <li>
+                    Set the output color to the interpolated <span class="code">v_color</span>.
+                </li>
+            </ul>
+            <p>
+                Rainbow cube!
+            </p>
         </section>
     </body>
 </html>
