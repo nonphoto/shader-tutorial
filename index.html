@@ -38,7 +38,7 @@
                         <a href="/part-0/main.js">main.js</a>
                     </div>
                     <div>
-                        Request the vertex and fragment shaders using <span class="code">request</span> from the utils script.
+                        Request the vertex and fragment shaders using <code>request</code> from the utils script.
                     </div>
                 </li>
             </ul>
@@ -88,10 +88,10 @@
                     </div>
                     <div>
                         <p>
-                            Create arrays for the vertices and indices called <span class="code">positions</span> and <span class="code">elements</span>
+                            Create arrays for the vertices and indices called <code>positions</code> and <code>elements</code>
                         </p>
                         <p>
-                            Create a <span class="code">vertexBuffer</span> and <span class="code">elementBuffer</span>, and populate them with the vertex positions and indices.
+                            Create a <code>vertexBuffer</code> and <code>elementBuffer</code>, and populate them with the vertex positions and indices.
                         </p>
                     </div>
                 </li>
@@ -124,7 +124,7 @@
                             Get the memory location of the vertex position attribute and write the vertex buffer to it.
                         </p>
                         <p>
-                            Run the vertex and fragment shaders by calling <span class="code">gl.drawElements</span>
+                            Run the vertex and fragment shaders by calling <code>gl.drawElements</code>
                         </p>
                     </div>
                 </li>
@@ -133,7 +133,7 @@
                         <a href="/part-3/vertex.glsl">vertex.glsl</a>
                     </div>
                     <div>
-                        Set <span class="code">gl_Position</span> to return each of the vertices without manipulating them.
+                        Set <code>gl_Position</code> to return each of the vertices without manipulating them.
                     </div>
                 </li>
                 <li>
@@ -141,7 +141,7 @@
                         <a href="/part-3/fragment.glsl">fragment.glsl</a>
                     </div>
                     <div>
-                        Set <span class="code">gl_FragColor</span> to render bright blue for every fragment.
+                        Set <code>gl_FragColor</code> to render bright blue for every fragment.
                     </div>
                 </li>
             </ul>
@@ -167,7 +167,7 @@
                     </div>
                     <div>
                         <p>
-                            Add a function <span class="code">perspective</span> that produces a new perspective matrix.
+                            Add a function <code>perspective</code> that produces a new perspective matrix.
                         </p>
                         <p>
                             Translate the vertex position away from the origin of the scene using vector addition.
@@ -194,7 +194,7 @@
                     </div>
                     <div>
                         <p>
-                            Add a function <span class="code">rotateY</span> that returns a new rotation matrix.
+                            Add a function <code>rotateY</code> that returns a new rotation matrix.
                         </p>
                         <p>
                             Rotate the model by multiplying each vertex by the rotation matrix.
@@ -224,7 +224,7 @@
                             Get the memory location of the time uniform in the vertex shader.
                         </p>
                         <p>
-                            Start an animation loop using <span class="code">requestAnimationFrame</span>.
+                            Start an animation loop using <code>requestAnimationFrame</code>.
                         </p>
                         <p>
                             Write the current time to the uniform each frame.
@@ -261,7 +261,7 @@
                         <a href="/part-7/vertex.glsl">vertex.glsl</a>
                     </div>
                     <div>
-                        Create a new varying called <span class="code">v_color</span>.
+                        Create a new varying called <code>v_color</code>.
                     </div>
                 </li>
                 <li>
@@ -269,7 +269,7 @@
                         <a href="/part-7/fragment.glsl" target="_blank">fragment.glsl</a>
                     </div>
                     <div>
-                        Set the output color to the interpolated <span class="code">v_color</span>.
+                        Set the output color to the interpolated <code>v_color</code>.
                     </div>
                 </li>
             </ul>

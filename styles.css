@@ -66,15 +66,9 @@ ul, ol {
     margin-left: 1.3rem;
 }
 
-.code {
+code {
     font-family: 'SF Mono', 'Menlo', 'Monaco', 'Inconsolata', 'Deja Vu', monospace;
     font-size: 0.9em;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding-top: 0.08em;
-    padding-bottom: 0.16em;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    border-radius: 0.2em;
 }
 
 .steps {
@@ -83,10 +77,6 @@ ul, ol {
     padding: 1em;
     margin: 1em 0;
     list-style: none;
-}
-
-.steps .code {
-    background-color: white;
 }
 
 .steps li {
