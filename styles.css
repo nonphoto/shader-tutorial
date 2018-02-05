@@ -47,8 +47,6 @@ h1 {
 }
 
 h2 {
-    display: flex;
-    align-items: center;
     font-weight: 500;
     font-size: 1.6rem;
 }
@@ -71,6 +69,17 @@ ul, ol {
 code {
     font-family: 'SF Mono', 'Menlo', 'Monaco', 'Inconsolata', 'Deja Vu', monospace;
     font-size: 0.9em;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.title > * {
+    margin: 0;
 }
 
 .steps {
