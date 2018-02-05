@@ -10,7 +10,7 @@ html, body {
 
 html {
     font-family: -apple-system, BlinkMacSystemFont, helvetica neue, helvetica, roboto, noto, segoe ui, arial, sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.5;
 }
 
@@ -51,6 +51,13 @@ h1 {
     font-size: 3rem;
 }
 
+h2 {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
 h1, h2, h3, p, li {
     margin: 0;
     margin-bottom: 1em;
@@ -69,30 +76,6 @@ ul, ol {
 code {
     font-family: 'SF Mono', 'Menlo', 'Monaco', 'Inconsolata', 'Deja Vu', monospace;
     font-size: 0.9em;
-}
-
-.number {
-    display: flex;
-    align-items: center;
-    font-size: 1.5em;
-    line-height: 1em;
-    font-weight: 600;
-}
-
-h2 {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-}
-
-.number:after {
-    display: block;
-    position: relative;
-    content: '';
-    width: 2rem;
-    height: 0.1em;
-    background-color: black;
-    margin: 0 0.2em;
 }
 
 .steps {
