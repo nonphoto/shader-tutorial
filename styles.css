@@ -120,7 +120,8 @@ code {
         flex-direction: row;
     }
 
+    .steps li div:first-child,
     .steps li div:last-child {
-        margin-left: 0;
+        margin: 0;
     }
 }
