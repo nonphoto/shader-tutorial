@@ -21,49 +21,57 @@
         </section>
         <section id="part-0">
             <h2>0</h2>
-            <h4>
+            <h3>
                 Setting up our site
-            </h4>
-            <ul>
+            </h3>
+            <ul class="steps">
                 <li>
-                    Create a very basic site with a canvas centered in the viewport.
+                    <div>
+                        <a href="/part-0/index.html">index.html</a>
+                    </div>
+                    <div>
+                        Create a very basic site with a canvas centered in the viewport.
+                    </div>
                 </li>
                 <li>
-                    Run a Javascript file called <a href="part-0/main.js">main.js</a> at the end of the page.
-                </li>
-                <li>
-                    Request the vertex and fragment shaders using <span class="code">request</span> from <a href="util.js">util.js</a>
+                    <div>
+                        <a href="/part-0/main.js">main.js</a>
+                    </div>
+                    <div>
+                        Request the vertex and fragment shaders using <span class="code">request</span> from the utils script.
+                    </div>
                 </li>
             </ul>
         </section>
         <section id="part-1">
             <h2>1</h2>
-            <h4>
+            <h3>
                 Initializing the context
-            </h4>
-            <ul>
+            </h3>
+            <ul class="steps">
                 <li>
-                    Create a new WebGl context for the canvas element.
-                </li>
-                <li>
-                    Create new shader objects from the vertex and fragment shader sources.
-                </li>
-                <li>
-                    Create a new WebGl program that uses the two shaders.
-                </li>
-                <li>
-                    Clear the canvas using our context.
+                    <div>
+                        <a href="/part-1/main.js">main.js</a>
+                    </div>
+                    <div>
+                        <p>
+                            Create a new WebGl context for the canvas element.
+                        </p>
+                        <p>
+                            Create new shader objects from the vertex and fragment shader sources, and a program that uses the two shaders.
+                        </p>
+                        <p>
+                            Clear the canvas using the context.
+                        </p>
+                    </div>
                 </li>
             </ul>
-            <p>
-                The canvas should now be bright pink.
-            </p>
         </section>
         <section id="part-2">
             <h2>2</h2>
-            <h4>
+            <h3>
                 Creating the vertex and element buffers
-            </h4>
+            </h3>
             <p>
                 We want the vertex shader to iterate over our vertex positions, but we haven't yet given it any data to work with.
             </p>
@@ -73,25 +81,32 @@
             <p>
                 Even though vertex positions are 3-dimensional vectors, both the vertex and element buffers are flat arrays. We will tell WebGL how to interpret the buffers later.
             </p>
-            <ul>
+            <ul class="steps">
                 <li>
-                    Create arrays for the vertices and indices called <span class="code">positions</span> and <span class="code">elements</span>
-                </li>
-                <li>
-                    Create a <span class="code">vertexBuffer</span> and <span class="code">elementBuffer</span>, and populate them with the vertex positions and indices.
+                    <div>
+                        <a href="/part-2/main.js">main.js</a>
+                    </div>
+                    <div>
+                        <p>
+                            Create arrays for the vertices and indices called <span class="code">positions</span> and <span class="code">elements</span>
+                        </p>
+                        <p>
+                            Create a <span class="code">vertexBuffer</span> and <span class="code">elementBuffer</span>, and populate them with the vertex positions and indices.
+                        </p>
+                    </div>
                 </li>
             </ul>
         </section>
         <section id="part-3">
             <h2>3</h2>
-            <h4>
+            <h3>
                 Drawing triangles to the screen
-            </h4>
+            </h3>
             <p>
                 We have created buffers for our vertex data, now its time to convert the data into pixels in the canvas.
             </p>
             <p>
-                The vertex shader receives the vertex positions from the vertex buffer in an <em>attribute</em>. An attribute is a variable that we declare in the vertex shader.
+                The vertex shader receives the vertex positions from the vertex buffer in an <em>attribute</em>. An attribute is a variable that we declare in the vertex shader whose memory location can be accessed from outside of the shader.
             </p>
             <p>
                 First we write each element of the vertex buffer to an attribute we declared in the vertex shader. Later, we will manipulate the vertex in some way before returning it.
@@ -99,29 +114,43 @@
             <p>
                 When the vertex shader is finished processing all of the vertex data, the shader program rasterizes the resulting triangles. It uses the fragment shader to decide what color each pixel should be.
             </p>
-            <ul>
+            <ul class="steps">
                 <li>
-                    Get the memory location of the vertex position attribute and write the vertex buffer to it.
+                    <div>
+                        <a href="/part-3/main.js">main.js</a>
+                    </div>
+                    <div>
+                        <p>
+                            Get the memory location of the vertex position attribute and write the vertex buffer to it.
+                        </p>
+                        <p>
+                            Run the vertex and fragment shaders by calling <span class="code">gl.drawElements</span>
+                        </p>
+                    </div>
                 </li>
                 <li>
-                    Run the vertex and fragment shaders by calling <span class="code">gl.drawElements</span>
+                    <div>
+                        <a href="/part-3/vertex.glsl">vertex.glsl</a>
+                    </div>
+                    <div>
+                        Set <span class="code">gl_Position</span> to return each of the vertices without manipulating them.
+                    </div>
                 </li>
                 <li>
-                    Set <span class="code">gl_Position</span> to return each of the vertices without manipulating them.
-                </li>
-                <li>
-                    Set <span class="code">gl_FragColor</span> to render bright blue for every fragment.
+                    <div>
+                        <a href="/part-3/fragment.glsl">fragment.glsl</a>
+                    </div>
+                    <div>
+                        Set <span class="code">gl_FragColor</span> to render bright blue for every fragment.
+                    </div>
                 </li>
             </ul>
-            <p>
-                The canvas is now bright blue.
-            </p>
         </section>
         <section id="part-4">
             <h2>4</h2>
-            <h4>
+            <h3>
                 Perspective projection
-            </h4>
+            </h3>
             <p>
                 The entire canvas is now blue because the edges of the cube line up with the corners of the canvas.
             </p>
@@ -131,72 +160,92 @@
             <p>
                 The easiest way to do this is using <em>matrix multiplication</em>. Simply put, matrices perform different transformations on vectors when you multiply them together.
             </p>
-            <ul>
+            <ul class="steps">
                 <li>
-                    Add a function <span class="code">perspective</span> that produces a new perspective matrix.
-                </li>
-                <li>
-                    Translate the vertex position away from the origin of the scene using vector addition.
-                </li>
-                <li>
-                    Project the 3d vertex into 2d space by multiplying it by the perspective matrix.
+                    <div>
+                        <a href="/part-4/vertex.glsl">vertex.glsl</a>
+                    </div>
+                    <div>
+                        <p>
+                            Add a function <span class="code">perspective</span> that produces a new perspective matrix.
+                        </p>
+                        <p>
+                            Translate the vertex position away from the origin of the scene using vector addition.
+                        </p>
+                        <p>
+                            Project the 3d vertex into 2d space by multiplying it by the perspective matrix.
+                        </p>
+                    </div>
                 </li>
             </ul>
-            <p>
-                Now you should see a blue square in the center of a pink canvas.
-            </p>
         </section>
         <section id="part-5">
             <h2>5</h2>
-            <h4>
+            <h3>
                 Model rotation
-            </h4>
+            </h3>
             <p>
                 We rotate the model in the same way we performed the perspective projection, with matrix multiplication.
             </p>
-            <ul>
+            <ul class="steps">
                 <li>
-                    Add a function <span class="code">rotateY</span> that returns a new rotation matrix.
-                </li>
-                <li>
-                    Rotate the model by multiplying each vertex by the rotation matrix.
+                    <div>
+                        <a href="/part-5/vertex.glsl">vertex.glsl</a>
+                    </div>
+                    <div>
+                        <p>
+                            Add a function <span class="code">rotateY</span> that returns a new rotation matrix.
+                        </p>
+                        <p>
+                            Rotate the model by multiplying each vertex by the rotation matrix.
+                        </p>
+                    </div>
                 </li>
             </ul>
         </section>
         <section id="part-6">
             <h2>6</h2>
-            <h4>
+            <h3>
                 Animation
-            </h4>
+            </h3>
             <p>
                 We can animate our scene by re-drawing the frame 60 times per second, and passing in a different global time variable for each frame.
             </p>
             <p>
                 WebGL supports passing global variables to shaders with <em>uniforms</em>. Uniforms are just constants that we set before running the vertex and fragment shaders.
             </p>
-            <ul>
+            <ul class="steps">
                 <li>
-                    Get the memory location of the time uniform in the vertex shader.
+                    <div>
+                        <a href="/part-6/main.js">main.js</a>
+                    </div>
+                    <div>
+                        <p>
+                            Get the memory location of the time uniform in the vertex shader.
+                        </p>
+                        <p>
+                            Start an animation loop using <span class="code">requestAnimationFrame</span>.
+                        </p>
+                        <p>
+                            Write the current time to the uniform each frame.
+                        </p>
+                    </div>
                 </li>
                 <li>
-                    Start an animation loop using <code class="span">requestAnimationFrame</code>.
-                </li>
-                <li>
-                    Write the current time to the uniform each frame.
-                </li>
-                <li>
-                    Rotate the model by a product of the current time.
+                    <div>
+                        <a href="/part-6/vertex.glsl">vertex.glsl</a>
+                    </div>
+                    <div>
+                        Rotate the model by a product of the current time.
+                    </div>
                 </li>
             </ul>
-            <p>
-                The cube spins around the y axis now. Notice that the background is transparent because we aren't clearing the canvas each frame.
-            </p>
         </section>
         <section id="part-7">
             <h2>7</h2>
-            <h4>
+            <h3>
                 Color
-            </h4>
+            </h3>
             <p>
                 We can add color to our cube by returning a different color for each pixel in the fragment shader.
             </p>
@@ -206,17 +255,24 @@
             <p>
                 The varying will automatically interpolate between vertex values for the given fragment.
             </p>
-            <ul>
+            <ul class="steps">
                 <li>
-                    Create a new varying called <span class="code">v_color</span>.
+                    <div>
+                        <a href="/part-7/vertex.glsl">vertex.glsl</a>
+                    </div>
+                    <div>
+                        Create a new varying called <span class="code">v_color</span>.
+                    </div>
                 </li>
                 <li>
-                    Set the output color to the interpolated <span class="code">v_color</span>.
+                    <div>
+                        <a href="/part-7/fragment.glsl" target="_blank">fragment.glsl</a>
+                    </div>
+                    <div>
+                        Set the output color to the interpolated <span class="code">v_color</span>.
+                    </div>
                 </li>
             </ul>
-            <p>
-                Rainbow cube!
-            </p>
         </section>
     </body>
 </html>
