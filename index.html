@@ -11,14 +11,75 @@
         </section>
         <section id="intro">
             <p>
-                WebGl is our interface with the GPU. It is challenging to use because its API is confusing. In this tutorial I want to demystify the process of getting a shader program running so you don't have to load a big framework like <a href="https://threejs.org/">Three</a> or <a href="http://www.pixijs.com/">Pixi</a>.
+                This is a tutorial about graphics programming with WebGL.
             </p>
             <p>
-                Essentially, WebGL uses the graphics card to draw to the canvas.
+                If you've done any graphics programming before (with something like Processing or HTML5 canvas) You're probably used to drawing individual shapes to the screen. This is a very intuitive way of drawing but it makes organic looking drawings difficult, and can be slow if you have a lot of layers and effects at once.
             </p>
             <p>
-                All geometry is composed of triangles. Triangles are great because any three points defines exactly one plane.
+                This type of drawing is really just an abstraction of a lower-level technology called shaders.
             </p>
+            <p>
+                Shaders are programs that run on the Graphics Processing Unit or GPU: a separate chip in most computers that is designed specifically for graphics operations.
+            </p>
+            <p>
+                WebGl and similar libraries like OpenGL are our interface with the GPU; it's how we can tell the GPU to run the shader programs that we wrote from scratch.
+            </p>
+            <p>
+                WebGL is notoriously difficult because its API closely matches how the GPU works. The GPU needs to have very strict constraints so it can run so fast. This means that our WebGL program needs to have a lot of configuration and boilerplate code to even get it to start.
+            </p>
+            <p>
+                In this tutorial I want to demystify the process of getting a shader program running so you don't have to load a framework like <a href="https://threejs.org/">Three</a> or <a href="http://www.pixijs.com/">Pixi</a>.
+            </p>
+            <p>
+                Shaders aren't just useful for their speed; they enable a less mechanical-looking way of drawing. We'll see some examples of that later.
+            </p>
+        </section>
+        <section id="threads">
+            <h2>Threads</h2>
+            <p>
+                All processors work like a group of pipes. Programs running on the processor feed inputs into one end of the pipe, and the output comes out the other, but a pipe can only process one input at a time.
+            </p>
+            <p>
+                The GPU is a processor with thousands of small pipes, or <em>threads</em> that work asynchronously. Shaders are the function that turns input into output for a single thread.
+            </p>
+            <p>
+                Unfortunately, an individual thread can't know what its neighbors are up to, which can make writing shaders very challenging.
+            </p>
+            <p>
+                In our demo, we will have three programs:
+            </p>
+            <ol>
+                <li>
+                    A Javascript program running in a browser. It initializes WebGL with programs 2 and 3.
+                </li>
+                <li>
+                    A <em>vertex shader</em>.
+                </li>
+                <li>
+                    A <em>fragment shader</em>.
+                </li>
+            </ol>
+        </section>
+        <section id="rasterization">
+            <h2>Rasterization</h2>
+            <p>
+                WebGL uses an algorithm called rasterization to turn our model into pixels on the screen.
+            </p>
+            <ol>
+                <li>
+                    It requires that all geometry be composed of triangles. Triangles are great because, mathematically, any three points defines exactly one plane.
+                </li>
+                <li>
+                    It runs a vertex shader on each vertex of each triangle to position it on the screen.
+                </li>
+                <li>
+                    It removes all triangles that are covered or off-screen.
+                </li>
+                <li>
+                    It runs a fragment shader on every pixel contained in each of the remaining triangles.
+                </li>
+            </ol>
         </section>
         <section id="part-0">
             <div class="title">
