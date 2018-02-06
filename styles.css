@@ -38,6 +38,10 @@ aside {
     margin-bottom: 1em;
 }
 
+body.is-presentation-mode aside {
+    display: none;
+}
+
 a {
     color: inherit;
     text-decoration: none;
