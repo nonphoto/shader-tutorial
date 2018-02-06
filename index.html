@@ -11,14 +11,20 @@
         </section>
         <section>
             <h2>
-                This is a tutorial about graphics programming with WebGL.
+                This is a tutorial about graphics programming on the web.
             </h2>
             <aside>
                 If you've done any graphics programming before &mdash; with a library like Processing or HTML5 canvas &mdash; you're probably used to drawing individual shapes to the screen to compose an image. This is a very intuitive way of drawing but it makes organic looking drawings difficult, and can be slow if you have a lot of layers and effects at once.
             </aside>
             <img src="" alt="A diagram comparing drawing libraries to shaders">
             <aside>
-                Using a drawing library is really just an abstraction of a lower-level technology called shaders. Shaders are programs that run on the Graphics Processing Unit (GPU): a separate chip in most computers that is designed specifically for graphics operations. It draws things by calculating the color for every pixel on the screen simultaneously. The shader itself is the function the GPU uses to perform the calculation.
+                Using a drawing library is really just an abstraction of a lower-level technology called shaders.
+            </aside>
+            <p>
+                Shaders are programs that run on the GPU: a processor that is designed specifically for graphics operations.
+            </p>
+            <aside>
+                The GPU draws things by calculating the color for every pixel on the screen simultaneously. The shader itself is the function the GPU uses to perform the calculation. Shaders are typically written in a language called GLSL.
             </aside>
         </section>
         <section>
@@ -26,7 +32,7 @@
                 WebGL is the interface for the GPU.
             </h2>
             <aside>
-                WebGl and similar libraries like OpenGL are our interface with the GPU; it's how we can tell the GPU to run the shader programs that we wrote from scratch. Some frameworks like <a href="https://threejs.org/">Three</a>, <a href="https://p5js.org">p5</a>, or <a href="http://www.pixijs.com/">Pixi</a> use WebGL under the hood and provide a more streamlined API.
+                WebGl and similar libraries like OpenGL are our interface with the GPU; it's how we can tell the GPU to run the shader programs that we wrote in GLSL. Some frameworks like <a href="https://threejs.org/">Three</a>, <a href="https://p5js.org">p5</a>, or <a href="http://www.pixijs.com/">Pixi</a> use WebGL under the hood and provide a more streamlined API.
             </aside>
             <p>
                 WebGL can be tricky to use because it matches how the GPU works.
@@ -38,6 +44,9 @@
             <aside>
                 In this tutorial I want to demystify the process of getting a shader program running without a framework. Fortunately there are some very creative ways to use WebGL that aren't as easy if you happen to be using a wrapper.
             </aside>
+            <p>
+                Drawing with WebGL and shaders is a fundamentally different technique from most drawing frameworks.
+            </p>
             <aside>
                 Regardless of whether you are using WebGL or not, shaders aren't just useful for their speed. They enable a less mechanical-looking way of drawing. We'll see some examples of that later.
             </aside>
@@ -65,7 +74,7 @@
             </p>
             <ol>
                 <li>
-                    A Javascript program running in a browser. It initializes WebGL with programs 2 and 3.
+                    A JavaScript program running in a browser. It initializes WebGL with programs 2 and 3.
                 </li>
                 <li>
                     A <em>vertex shader</em>.
@@ -260,6 +269,9 @@
             <p>
                 The easiest way to do this is using <em>matrix multiplication</em>. Simply put, matrices perform different transformations on vectors when you multiply them together.
             </p>
+            <aside>
+                There is an entire discipline of mathematics dedicated partially to matrix multiplication called <a href="https://en.wikipedia.org/wiki/Linear_algebra">linear algebra</a>. You can read more about matrix multiplication and how the perspective matrix is constructed <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/">here</a>.
+            </aside>
             <ul class="steps">
                 <li>
                     <div>
@@ -398,7 +410,7 @@
                 </li>
                 <li>
                     <div>
-                        Fragment Shaders
+                        Fragment shaders
                     </div>
                     <div>
                         <a href="https://thebookofshaders.com/">The Book of Shaders</a>
@@ -406,7 +418,15 @@
                 </li>
                 <li>
                     <div>
-                        Advanced Rendering
+                        Matrix math in JavaScript
+                    </div>
+                    <div>
+                        <a href="http://glmatrix.net/">glMatrix</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        Advanced rendering
                     </div>
                     <div>
                         <a href="http://iquilezles.org/www/index.htm">Inigo Quilez</a>
@@ -414,7 +434,7 @@
                 </li>
                 <li>
                     <div>
-                        Web Demos
+                        Web demos
                     </div>
                     <div>
                         <a href="https://www.shadertoy.com/">Shader Toy</a>
