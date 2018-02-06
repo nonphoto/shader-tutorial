@@ -129,7 +129,7 @@
                         <a href="https://github.com/nonphoto/shader-tutorial/blob/master/part-0/main.js">main.js</a>
                     </div>
                     <div>
-                        Request the vertex and fragment shaders using <code>request</code> from the utils script.
+                        Request the vertex and fragment shaders using <code>request</code> from the <a href="https://github.com/nonphoto/shader-tutorial/blob/master/util.js">utils</a>.
                     </div>
                 </li>
             </ul>
@@ -139,6 +139,12 @@
                 <h2>1 &mdash; Initializing the context</h2>
                 <a href="/part-1">Demo</a>
             </div>
+            <p>
+                To start drawing with our vertex and fragment shaders, we need to create a new WebGL context.
+            </p>
+            <p>
+                The context object contains all of the methods that we will use to set up the program. I did some of the boring error handling in the <a href="https://github.com/nonphoto/shader-tutorial/blob/master/util.js">utils</a>.
+            </p>
             <ul class="steps">
                 <li>
                     <div>
@@ -146,13 +152,13 @@
                     </div>
                     <div>
                         <p>
-                            Create a new WebGl context for the canvas element.
+                            Create a new WebGl context for the canvas element called <code>gl</code>.
                         </p>
                         <p>
                             Create new shader objects from the vertex and fragment shader sources, and a program that uses the two shaders.
                         </p>
                         <p>
-                            Clear the canvas using the context.
+                            Clear the canvas with <code>gl.clear</code>.
                         </p>
                     </div>
                 </li>
