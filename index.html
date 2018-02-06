@@ -35,7 +35,7 @@
                 WebGl and similar libraries like OpenGL are our interface with the GPU; it's how we can tell the GPU to run the shader programs that we wrote in GLSL. Some frameworks like <a href="https://threejs.org/">Three</a>, <a href="https://p5js.org">p5</a>, or <a href="http://www.pixijs.com/">Pixi</a> use WebGL under the hood and provide a more streamlined API.
             </aside>
             <p>
-                WebGL can be tricky to use because it matches how the GPU works.
+                WebGL can be tricky to use because it matches how the GPU works: it can't decide what to do next on its own.
             </p>
             <aside>
                 WebGL is notoriously difficult because its API closely matches how the GPU works. The GPU needs to have very strict constraints so it can run so fast. It also can't decide what to do next on its own, it must be told. This means that our program using the WebGL library needs to have a lot of configuration and boilerplate code to even get the GPU to start drawing.
