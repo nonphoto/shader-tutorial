@@ -29,6 +29,15 @@ section:first-of-type {
     border-top: none;
 }
 
+aside {
+    border-style: solid;
+    border-radius: 0.2em;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-width: 0.08em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -62,7 +71,7 @@ li:last-child {
 }
 
 ul, ol {
-    margin-left: 1.3rem;
+    margin-left: 2rem;
 }
 
 code {
