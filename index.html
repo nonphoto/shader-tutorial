@@ -35,7 +35,7 @@
                 WebGl and similar libraries like OpenGL are our interface with the GPU; it's how we can tell the GPU to run the shader programs that we wrote in GLSL. Some frameworks like <a href="https://threejs.org/">Three</a>, <a href="https://p5js.org">p5</a>, or <a href="http://www.pixijs.com/">Pixi</a> use WebGL under the hood and provide a more streamlined API.
             </aside>
             <p>
-                WebGL can be tricky to use because it matches how the GPU works.
+                WebGL can be tricky to use because it matches how the GPU works: it can't decide what to do next on its own.
             </p>
             <aside>
                 WebGL is notoriously difficult because its API closely matches how the GPU works. The GPU needs to have very strict constraints so it can run so fast. It also can't decide what to do next on its own, it must be told. This means that our program using the WebGL library needs to have a lot of configuration and boilerplate code to even get the GPU to start drawing.
@@ -185,7 +185,7 @@
                 We use a <em>vertex buffer</em> to store our vertex positions, and an <em>element buffer</em> to store the order in which to traverse the vertices.
             </p>
             <p>
-                Even though vertex positions are 3-dimensional vectors, both the vertex and element buffers are flat arrays. We will tell WebGL how to interpret the buffers later.
+                Even though vertex positions are 3-dimensional vectors, both the vertex and element buffers are flat arrays. We will tell WebGL to read the buffers in chunks of three components later.
             </p>
             <p>
                 This won't have any visual effect because we haven't drawn the buffers to the canvas yet.
@@ -215,13 +215,13 @@
                 We have created buffers for our vertex data, now its time to convert the data into pixels in the canvas.
             </p>
             <p>
-                The vertex shader receives the vertex positions from the vertex buffer in an <em>attribute</em>. An attribute is a variable that we declare in the vertex shader whose memory location can be accessed from outside of the shader.
+                The vertex shader receives the vertex positions from the vertex buffer in an <em>attribute</em>. An attribute is a variable declared in the vertex shader whose memory location can be accessed from the main script.
             </p>
             <p>
-                First we write each element of the vertex buffer to an attribute we declared in the vertex shader. Later, we will manipulate the vertex in some way before returning it.
+                First we write each element of the vertex buffer to an attribute we declared in the vertex shader.
             </p>
             <p>
-                When the vertex shader is finished processing all of the vertex data, the shader program rasterizes the resulting triangles. It uses the fragment shader to decide what color each pixel should be.
+                When the vertex shader is finished processing all of the vertex data, the fragment shader colors in the pixels inside each triangle.
             </p>
             <ul class="steps">
                 <li>
@@ -250,7 +250,7 @@
                         <a href="https://github.com/nonphoto/shader-tutorial/blob/master/part-3/fragment.glsl">fragment.glsl</a>
                     </div>
                     <div>
-                        Set <code>gl_FragColor</code> to render bright blue for every fragment.
+                        Set <code>gl_FragColor</code> to render bright blue for every pixel.
                     </div>
                 </li>
             </ul>
