@@ -115,6 +115,21 @@ code {
     margin-left: 1em;
 }
 
+.table {
+    margin-left: 0;
+    margin-bottom: 3em;
+}
+
+.table li {
+    display: flex;
+    width: 100%;
+}
+
+.table li div {
+    width: 50%;
+    padding-right: 2em;
+}
+
 @media (min-width: 700px) {
     html {
         font-size: 22px;
