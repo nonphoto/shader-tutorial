@@ -27,7 +27,7 @@
                 In most drawing libraries we draw one shape at a time. With shaders we go through every pixel on the screen and decide what color it should be.
             </p>
             <aside>
-                The GPU draws things by calculating the color for every pixel simultaneously. The shader itself is the function the GPU uses to perform the calculation. Shaders are typically written in a language called GLSL.
+                The GPU draws things by calculating the color for every pixel simultaneously, which makes it very fast. The shader itself is the function the GPU uses to perform the calculation. Shaders are typically written in a language called GLSL.
             </aside>
         </section>
         <section>
@@ -35,20 +35,20 @@
                 WebGL is the interface for the GPU.
             </h2>
             <aside>
-                WebGl and similar libraries like OpenGL are our interface with the GPU; it's how we can tell the GPU to run the shader programs that we wrote in GLSL. Some frameworks like <a href="https://threejs.org/">Three</a>, <a href="https://p5js.org">p5</a>, or <a href="http://www.pixijs.com/">Pixi</a> use WebGL under the hood and provide a more streamlined API.
+                WebGl and similar libraries like OpenGL are how we can tell the GPU to run the shader programs that we wrote in GLSL. Some frameworks like <a href="https://threejs.org/">Three</a>, <a href="https://p5js.org">p5</a>, or <a href="http://www.pixijs.com/">Pixi</a> use WebGL under the hood and provide a more streamlined API.
             </aside>
             <p>
                 WebGL can be tricky to use because it matches how the GPU works: it can't decide what to do next on its own.
             </p>
             <aside>
-                WebGL is notoriously difficult because its API closely matches how the GPU works. The GPU needs to have very strict constraints so it can run so fast. It also can't decide what to do next on its own, it must be told. This means that our program using the WebGL library needs to have a lot of configuration and boilerplate code to even get the GPU to start drawing.
+                The also needs to have very strict constraints so it can run so fast. This means that our program using the WebGL library needs to have a lot of configuration and boilerplate code to even get the GPU to start drawing.
             </aside>
             <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-2.jpg" alt="A diagram of WebGL interfacing with the GPU">
             <aside>
-                In this tutorial I want to demystify the process of getting a shader program running without a framework. Fortunately there are some very creative ways to use WebGL that aren't as easy if you happen to be using a wrapper.
+                In this tutorial I want to demystify the process of getting a shader program running from scratch. There are some very creative ways to use WebGL that aren't as easy if you happen to be using a framework.
             </aside>
             <p>
-                Drawing with WebGL and shaders is a fundamentally different technique from most drawing frameworks.
+                Drawing with WebGL and shaders is a fundamentally different technique from most drawing libraries.
             </p>
             <aside>
                 Regardless of whether you are using WebGL or not, shaders aren't just useful for their speed. They enable a less mechanical-looking way of drawing. We'll see some examples of that later.
@@ -88,13 +88,18 @@
                     </aside>
                 </li>
                 <li>
-                    It runs a vertex shader on each vertex of each triangle to position it on the screen.
+                    It runs a <em>vertex shader</em> on each vertex of each triangle to position it on the screen.
                 </li>
                 <li>
-                    It removes all triangles that are covered or off-screen.
+                    <p>
+                        It removes all triangles that are covered or off-screen.
+                    </p>
+                    <aside>
+                        This way we can avoid drawing anything that isn't visible.
+                    </aside>
                 </li>
                 <li>
-                    It runs a fragment shader on every pixel contained in each of the remaining triangles.
+                    It runs a <em>fragment shader</em> on every pixel contained in each of the remaining triangles.
                 </li>
             </ol>
             <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-4.jpg" alt="A diagram of the rasterization algorithm.">
@@ -108,10 +113,10 @@
                     A JavaScript program running in a browser. It initializes WebGL with programs 2 and 3.
                 </li>
                 <li>
-                    A <em>vertex shader</em>.
+                    A vertex shader.
                 </li>
                 <li>
-                    A <em>fragment shader</em>.
+                    A fragment shader.
                 </li>
             </ol>
         </section>
