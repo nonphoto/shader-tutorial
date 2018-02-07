@@ -11,20 +11,23 @@
         </section>
         <section>
             <h2>
-                This is a tutorial about graphics programming on the web.
+                This is a tutorial about programming shaders on the web.
             </h2>
+            <p>
+                Shaders are programs that run on the GPU: a processor that is designed specifically for graphics operations.
+            </p>
             <aside>
-                If you've done any graphics programming before &mdash; with a library like Processing or HTML5 canvas &mdash; you're probably used to drawing individual shapes to the screen to compose an image. This is a very intuitive way of drawing but it makes organic looking drawings difficult, and can be slow if you have a lot of layers and effects at once.
+                If you've done any graphics programming before &mdash; with a library like Processing or HTML5 canvas &mdash; you're probably used to drawing geometric shapes to the screen to compose an image. This is a very intuitive way of drawing but it makes organic looking drawings difficult, and can be slow if you have a lot of layers and effects at once.
             </aside>
             <img class="is-small" src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-1.jpg" alt="A diagram comparing drawing libraries to shaders">
             <aside>
                 Using a drawing library is really just an abstraction of a lower-level technology called shaders.
             </aside>
             <p>
-                Shaders are programs that run on the GPU: a processor that is designed specifically for graphics operations.
+                In most drawing libraries we draw one shape at a time. With shaders we go through every pixel on the screen and decide what color it should be.
             </p>
             <aside>
-                The GPU draws things by calculating the color for every pixel on the screen simultaneously. The shader itself is the function the GPU uses to perform the calculation. Shaders are typically written in a language called GLSL.
+                The GPU draws things by calculating the color for every pixel simultaneously. The shader itself is the function the GPU uses to perform the calculation. Shaders are typically written in a language called GLSL.
             </aside>
         </section>
         <section>
@@ -69,20 +72,6 @@
                 Individual threads can't know what their neighbors are up to.
             </p>
             <img class="is-very-small" src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-3.jpg" alt="A diagram comparing processors to groups of pipes.">
-            <p>
-                In our demo, we will have three programs:
-            </p>
-            <ol>
-                <li>
-                    A JavaScript program running in a browser. It initializes WebGL with programs 2 and 3.
-                </li>
-                <li>
-                    A <em>vertex shader</em>.
-                </li>
-                <li>
-                    A <em>fragment shader</em>.
-                </li>
-            </ol>
         </section>
         <section id="rasterization">
             <h2>Rasterization</h2>
@@ -109,6 +98,22 @@
                 </li>
             </ol>
             <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-4.jpg" alt="A diagram of the rasterization algorithm.">
+        </section>
+        <section>
+            <p>
+                In our demo, we will have three programs:
+            </p>
+            <ol>
+                <li>
+                    A JavaScript program running in a browser. It initializes WebGL with programs 2 and 3.
+                </li>
+                <li>
+                    A <em>vertex shader</em>.
+                </li>
+                <li>
+                    A <em>fragment shader</em>.
+                </li>
+            </ol>
         </section>
         <section id="part-0">
             <div class="title">

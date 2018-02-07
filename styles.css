@@ -44,16 +44,17 @@ body.is-presentation-mode aside {
 
 img {
     width: 100%;
+    max-width: 1000px;
     height: auto;
-    margin: 2em auto;
+    margin: 1em 0;
 }
 
 img.is-small {
-    width: 60%;
+    width: 50%;
 }
 
 img.is-very-small {
-    width: 40%;
+    width: 35%;
 }
 
 a {
