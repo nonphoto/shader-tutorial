@@ -42,6 +42,20 @@ body.is-presentation-mode aside {
     display: none;
 }
 
+img {
+    width: 100%;
+    height: auto;
+    margin: 2em auto;
+}
+
+img.is-small {
+    width: 60%;
+}
+
+img.is-very-small {
+    width: 40%;
+}
+
 a {
     color: inherit;
     text-decoration: none;
