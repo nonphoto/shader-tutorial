@@ -78,8 +78,8 @@ float cnoise(vec3 P){
 }
 
 void main() {
-	float r = cnoise(vec3(gl_FragCoord.xy * 0.01, u_time * 0.001)) * 0.5;
-	float g = cnoise(vec3(gl_FragCoord.xy * 0.01, u_time * 0.002)) * 0.5;
-	float b = cnoise(vec3(gl_FragCoord.xy * 0.01, u_time * 0.003)) * 0.5;
+	float r = cnoise(vec3(gl_FragCoord.xy * 0.006, u_time * 0.001)) * 0.5;
+	float g = cnoise(vec3(gl_FragCoord.xy * 0.006, u_time * 0.002)) * 0.5;
+	float b = cnoise(vec3(gl_FragCoord.xy * 0.006, u_time * 0.003)) * 0.5;
 	gl_FragColor = v_color + vec4(r, g, b, 0);
 }
