@@ -7,7 +7,9 @@ document.addEventListener('keyup', (event) => {
 const sections = Array.from(document.querySelectorAll('section'))
 
 sections.forEach((section, index) => {
-    section.addEventListener('click', () => {
+    section.addEventListener('click', (event) => {
+        if (event.target.hasAttribute('href')) return
+
         const nextIndex = (index + 1) % sections.length
         const next = sections[nextIndex]
         const bounds = next.getBoundingClientRect()
