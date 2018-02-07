@@ -16,7 +16,7 @@
             <aside>
                 If you've done any graphics programming before &mdash; with a library like Processing or HTML5 canvas &mdash; you're probably used to drawing individual shapes to the screen to compose an image. This is a very intuitive way of drawing but it makes organic looking drawings difficult, and can be slow if you have a lot of layers and effects at once.
             </aside>
-            <img src="" alt="A diagram comparing drawing libraries to shaders">
+            <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-1.jpg" alt="A diagram comparing drawing libraries to shaders">
             <aside>
                 Using a drawing library is really just an abstraction of a lower-level technology called shaders.
             </aside>
@@ -40,7 +40,7 @@
             <aside>
                 WebGL is notoriously difficult because its API closely matches how the GPU works. The GPU needs to have very strict constraints so it can run so fast. It also can't decide what to do next on its own, it must be told. This means that our program using the WebGL library needs to have a lot of configuration and boilerplate code to even get the GPU to start drawing.
             </aside>
-            <img src="" alt="A diagram of WebGL interfacing with the GPU">
+            <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-2.jpg" alt="A diagram of WebGL interfacing with the GPU">
             <aside>
                 In this tutorial I want to demystify the process of getting a shader program running without a framework. Fortunately there are some very creative ways to use WebGL that aren't as easy if you happen to be using a wrapper.
             </aside>
@@ -68,7 +68,7 @@
             <p>
                 Individual threads can't know what their neighbors are up to.
             </p>
-            <img src="" alt="A diagram comparing processors to groups of pipes.">
+            <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-3.jpg" alt="A diagram comparing processors to groups of pipes.">
             <p>
                 In our demo, we will have three programs:
             </p>
@@ -108,7 +108,7 @@
                     It runs a fragment shader on every pixel contained in each of the remaining triangles.
                 </li>
             </ol>
-            <img src="" alt="A diagram of the rasterization algorithm.">
+            <img src="http://www.jonasluebbers.com/shader-tutorial/assets/diagram-4.jpg" alt="A diagram of the rasterization algorithm.">
         </section>
         <section id="part-0">
             <div class="title">
